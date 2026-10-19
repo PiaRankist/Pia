@@ -1,0 +1,85 @@
+{%- comment -%}
+  Halloween 2026 (Rankist): Komplett-Look auf allen Seiten. Liegt in der Header-Gruppe,
+  wirkt daher auf jeder Seite. Abschalten: diese Section im Customizer ausblenden.
+  Fließtext bleibt in der normalen Schrift, damit er lesbar bleibt.
+{%- endcomment -%}
+<style>
+  @font-face {
+    font-family: "Creepster";
+    src: url("{{ 'creepster.woff2' | asset_url }}") format("woff2");
+    font-display: swap;
+  }
+  #shopify-section-{{ section.id }} { display: none; }
+
+  /* Theme-Variablen: Überschriften-Schrift und Akzentfarben */
+  :root {
+    --heading-font-family: "Creepster", "Fjalla One", cursive;
+    --heading-font-weight: 400;
+    --heading-font-style: normal;
+    --accent: 255 122 26;
+    --button-background-primary: 255 122 26;
+    --button-text-primary: 26 10 0;
+    --on-sale-text: 230 95 0;
+    --on-sale-badge-background: 255 122 26;
+    --on-sale-badge-text: 26 10 0;
+    --primary-badge-background: 198 255 61;
+    --primary-badge-text: 16 32 0;
+  }
+
+  /* Alle Überschriften, auch außerhalb von main (Warenkorb, Menü-Drawer, Popups) */
+  :is(h1, h2, h3, h4, h5, .h0, .h1, .h2, .h3, .h4, .h5) {
+    font-family: "Creepster", "Fjalla One", cursive !important;
+    font-weight: 400 !important;
+    letter-spacing: .04em;
+    color: #ff7a1a;
+  }
+
+  /* Hauptmenü */
+  .header__primary-nav :is(a, button, summary),
+  .header__link-list :is(a, button, summary),
+  .mega-menu :is(a, .h6, .bold),
+  .navigation-drawer :is(a, button, summary) {
+    font-family: "Creepster", "Fjalla One", cursive !important;
+    font-weight: 400 !important;
+    letter-spacing: .06em;
+  }
+  .header__primary-nav :is(a, button, summary):hover { color: #ff7a1a; }
+
+  /* Buttons */
+  :is(.button, .btn, .shopify-payment-button__button--unbranded) {
+    font-family: "Creepster", "Fjalla One", cursive !important;
+    font-weight: 400 !important;
+    letter-spacing: .08em;
+    box-shadow: 0 0 18px rgb(255 122 26 / .35);
+  }
+
+  /* Produktkarten: Titel in Halloween-Schrift, Preis orange */
+  .product-card__title,
+  .product-card__title a {
+    font-family: "Creepster", "Fjalla One", cursive !important;
+    font-weight: 400 !important;
+    letter-spacing: .04em;
+    color: #ff7a1a;
+  }
+  sale-price { color: #e65f00; font-weight: 700; }
+
+  /* Links im Fließtext und Breadcrumbs */
+  .prose a:not(.button), .breadcrumb a { color: #e65f00; }
+
+  /* Footer-Überschriften */
+  .footer :is(.h6, .h5, .bold, p.h6) {
+    font-family: "Creepster", "Fjalla One", cursive !important;
+    font-weight: 400 !important;
+    letter-spacing: .05em;
+    color: #ff7a1a;
+  }
+</style>
+{% schema %}
+{
+  "name": "Halloween-Komplettlook",
+  "tag": "div",
+  "settings": [
+    { "type": "paragraph", "content": "Halloween 2026: Überschriften, Menü, Buttons und Produkttitel auf allen Seiten in Halloween-Schrift und Orange. Zum Abschalten die Section ausblenden." }
+  ]
+}
+{% endschema %}
